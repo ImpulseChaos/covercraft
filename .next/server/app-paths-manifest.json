@@ -1,0 +1,6 @@
+{
+  "/api/generate/cover-letter/route": "app/api/generate/cover-letter/route.js",
+  "/signup/page": "app/signup/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/cover-letter/page": "app/dashboard/cover-letter/page.js"
+}
