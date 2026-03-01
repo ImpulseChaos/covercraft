@@ -1,12 +1,20 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { type Profile, type Generation, PLAN_LABELS, FREE_GENERATION_LIMIT } from '@/types'
 
 export default function DashboardPage() {
+  return (
+    <Suspense>
+      <DashboardPageContent />
+    </Suspense>
+  )
+}
+
+function DashboardPageContent() {
   const [profile, setProfile] = useState<Profile | null>(null)
   const [generations, setGenerations] = useState<Generation[]>([])
   const [loading, setLoading] = useState(true)
