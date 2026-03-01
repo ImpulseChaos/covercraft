@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -9,6 +9,14 @@ import PricingCard from '@/components/PricingCard'
 import { type Profile } from '@/types'
 
 export default function UpgradePage() {
+  return (
+    <Suspense>
+      <UpgradePageContent />
+    </Suspense>
+  )
+}
+
+function UpgradePageContent() {
   const [profile, setProfile] = useState<Profile | null>(null)
   const [loading, setLoading] = useState<string | null>(null)
   const searchParams = useSearchParams()
